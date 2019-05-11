@@ -15,6 +15,7 @@ class ProductDetail: UIViewController {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var ivPicture: UIImageView!
     @IBOutlet weak var lblPrice: UILabel!
+    @IBOutlet weak var tvDesc: UITextView!
     @IBOutlet weak var btContact: UIButton!
     @IBAction func onClickContact(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "InterestViewController") as? InterestViewController
@@ -32,6 +33,7 @@ class ProductDetail: UIViewController {
             lblName.text = product?.name
             lblPrice.text = String(format: "Costo: $%.2f", product!.price)
             loadProductImage(withIndex: 0)
+            tvDesc.text = product?.description
             
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
             ivPicture.isUserInteractionEnabled = true

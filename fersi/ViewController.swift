@@ -32,6 +32,7 @@ class ViewController: UIViewController {
                     
                     self.products.append(
                         Product(
+                            id: document.documentID,
                             name: document.data()["name"] as! String,
                             description: document.data()["description"] as! String,
                             price: document.data()["price"] as! Double,

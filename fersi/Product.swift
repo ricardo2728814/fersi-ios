@@ -13,13 +13,16 @@ class Product {
     var description: String
     var price: Double
     var images: Array<String>
+    var id: String
     
     init(
+            id: String,
             name: String,
             description: String,
             price: Double,
             images: Array<String>
         ) {
+        self.id = id
         self.name = name
         self.description = description
         self.price = price
