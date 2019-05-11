@@ -11,22 +11,49 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    var products: [Product] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        initProducts()
     }
 
+    func initProducts() {
+        products.append(Product(
+            name: "Collar fino", description: "", price: 300, images: []
+        ))
+        
+        products.append(Product(
+            name: "Collar fino", description: "", price: 300, images: []
+        ))
+        
+        products.append(Product(
+            name: "Collar fino", description: "", price: 300, images: []
+        ))
+        
+        products.append(Product(
+            name: "Collar fino", description: "", price: 300, images: []
+        ))
+        
+        products.append(Product(
+            name: "Collar fino", description: "", price: 300, images: []
+        ))
+    }
 
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "ProductCell") as! ProductCellTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell") as! ProductCellTableViewCell
+        cell.set(product: products[indexPath.row])
+        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return products.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

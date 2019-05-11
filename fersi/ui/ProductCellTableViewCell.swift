@@ -9,4 +9,12 @@
 import UIKit
 
 class ProductCellTableViewCell: UITableViewCell {
+    @IBOutlet weak var ivPicture: UIImageView!
+    @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var labelPrice: UILabel!
+    
+    func set(product: Product) {
+        labelName.text = product.name
+        labelPrice.text = String(format: "%f", product.price)
+    }
 }
