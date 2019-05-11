@@ -15,6 +15,7 @@
 		07A3246F2244A0410077986B /* ProductCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3246E2244A0410077986B /* ProductCellTableViewCell.swift */; };
 		07A324712244A7D80077986B /* ProductDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A324702244A7D80077986B /* ProductDetail.swift */; };
 		07BE33062286C85700C28B0F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE33052286C85700C28B0F /* Product.swift */; };
+		07BE33082286D30A00C28B0F /* InterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE33072286D30A00C28B0F /* InterestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		07A3246E2244A0410077986B /* ProductCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductCellTableViewCell.swift; path = ui/ProductCellTableViewCell.swift; sourceTree = "<group>"; };
 		07A324702244A7D80077986B /* ProductDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductDetail.swift; path = ui/ProductDetail.swift; sourceTree = "<group>"; };
 		07BE33052286C85700C28B0F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		07BE33072286D30A00C28B0F /* InterestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				07A3245C224495E10077986B /* AppDelegate.swift */,
+				07BE33072286D30A00C28B0F /* InterestViewController.swift */,
 				07A3245E224495E10077986B /* ViewController.swift */,
 				07A3246E2244A0410077986B /* ProductCellTableViewCell.swift */,
 				07A32460224495E10077986B /* Main.storyboard */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07BE33082286D30A00C28B0F /* InterestViewController.swift in Sources */,
 				07A3245F224495E10077986B /* ViewController.swift in Sources */,
 				07A3245D224495E10077986B /* AppDelegate.swift in Sources */,
 				07BE33062286C85700C28B0F /* Product.swift in Sources */,

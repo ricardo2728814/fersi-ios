@@ -15,6 +15,6 @@ class ProductCellTableViewCell: UITableViewCell {
     
     func set(product: Product) {
         labelName.text = product.name
-        labelPrice.text = String(format: "%f", product.price)
+        labelPrice.text = String(format: "%.2f", product.price)
     }
 }
