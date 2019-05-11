@@ -7,47 +7,62 @@
 //
 
 import UIKit
+import Firebase
+import Nuke
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var products: [Product] = []
+    var db: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         
-        initProducts()
+        //initProducts()
+        self.products = []
+        db = Firestore.firestore()
+        db.collection("products").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    
+                    self.products.append(
+                        Product(
+                            name: document.data()["name"] as! String,
+                            description: document.data()["description"] as! String,
+                            price: document.data()["price"] as! Double,
+                            images: document.data()["images"] as! Array<String>
+                        )
+                    )
+                }
+                self.tableView.reloadData()
+            }
+        }
     }
 
-    func initProducts() {
-        products.append(Product(
-            name: "Collar fino", description: "", price: 300, images: []
-        ))
-        
-        products.append(Product(
-            name: "Collar fino", description: "", price: 300, images: []
-        ))
-        
-        products.append(Product(
-            name: "Collar fino", description: "", price: 300, images: []
-        ))
-        
-        products.append(Product(
-            name: "Collar fino", description: "", price: 300, images: []
-        ))
-        
-        products.append(Product(
-            name: "Collar fino", description: "", price: 300, images: []
-        ))
-    }
+
 
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell") as! ProductCellTableViewCell
+        Storage.storage().reference(withPath: "products").child(products[indexPath.row].images[0]).downloadURL { (url, err) in
+            
+            let options = ImageLoadingOptions(
+                contentModes: .init(
+                    success: .scaleAspectFill,
+                    failure: .center,
+                    placeholder: .center
+                )
+            )
+            
+            Nuke.loadImage(with: url!, options:options, into: cell.ivPicture)
+        }
         cell.set(product: products[indexPath.row])
         return cell
     }
