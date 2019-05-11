@@ -269,6 +269,7 @@
                     </view>
                     <connections>
                         <outlet property="btSend" destination="8IM-TJ-afQ" id="6VQ-FC-BD7"/>
+                        <outlet property="etMessage" destination="oUg-LN-GdJ" id="8Ww-Qd-q11"/>
                         <outlet property="lblName" destination="2WF-3P-H3s" id="Bdk-H2-nRe"/>
                     </connections>
                 </viewController>

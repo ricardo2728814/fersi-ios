@@ -57,12 +57,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //navigationController?.pushViewController(ProductDetail(), animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let vcPDetails = storyboard?.instantiateViewController(withIdentifier: "ProductDetail") as? ProductDetail
         vcPDetails?.product = products[indexPath.row]
         self.navigationController?.pushViewController(vcPDetails!, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
     }
 }

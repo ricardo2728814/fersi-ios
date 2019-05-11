@@ -13,11 +13,14 @@ class InterestViewController: UIViewController {
     @IBOutlet weak var btSend: UIButton!
     @IBAction func onSendMessage(_ sender: Any) {
     }
+    @IBOutlet weak var etMessage: UITextView!
     
     var product: Product? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        etMessage.text = "..."
+        etMessage.becomeFirstResponder()
         if product != nil {
             lblName.text = product?.name
         }
